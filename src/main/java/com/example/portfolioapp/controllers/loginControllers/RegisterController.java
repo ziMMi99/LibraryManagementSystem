@@ -92,7 +92,7 @@ public class RegisterController {
             data.userRegistration(user);
             data.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Could not close database connection - " + e.getMessage());
         }
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -106,7 +106,7 @@ public class RegisterController {
             try {
                 switchToLogin(event);
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Could not switch to login page - " + e.getMessage());
             }
 
         }

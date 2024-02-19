@@ -79,9 +79,9 @@ public class LoginController {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Could not switch to main page " + e.getMessage());
+            System.out.println("Could not switch to main page - " + e.getMessage());
         } catch (NoSuchAlgorithmException e) {
-            System.out.println("Could not find algorithm " + e.getMessage());
+            System.out.println("Could not find algorithm - " + e.getMessage());
         }
 
     }

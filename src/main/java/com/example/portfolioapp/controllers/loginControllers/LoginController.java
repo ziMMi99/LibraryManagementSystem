@@ -54,10 +54,7 @@ public class LoginController {
             HashedInputPassword.append(String.format("%02x", b));
         }
 
-        if (data.getHashedPassword(username).equals(HashedInputPassword.toString())) {
-            return true;
-        }
-        return false;
+        return data.getHashedPassword(username).contentEquals(HashedInputPassword);
     }
 
     public void setLoginButtonAction(ActionEvent event)  {

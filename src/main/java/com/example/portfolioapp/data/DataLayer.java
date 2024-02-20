@@ -74,8 +74,8 @@ public class DataLayer {
         }
     }
 
-    public String getHashedPassword(String username) {
-        String sql = "SELECT hashedPassword FROM Users WHERE username = " + username;
+    public String getHashedPassword(String usernameToFind) {
+        String sql = "SELECT hashedPassword FROM Users WHERE username = '" +  usernameToFind + "'";
         String hashedPassword = null;
         try (Statement statement = connection.createStatement()){
 

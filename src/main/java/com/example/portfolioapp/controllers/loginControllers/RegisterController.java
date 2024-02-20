@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class RegisterController {
@@ -50,6 +51,13 @@ public class RegisterController {
         stage.show();
     }
 
+    public boolean checkIfUsernameExists(String username) {
+        DataLayer data = new DataLayer();
+        ArrayList<String> usernames = data.getAllUsernames();
+
+        return usernames.contains(username);
+    }
+
     public void setRegisterButtonAction(ActionEvent event) throws NoSuchAlgorithmException {
         if (usernameField.getText().isBlank() ||
                 passwordField.getText().isBlank() ||
@@ -74,6 +82,19 @@ public class RegisterController {
         String email = emailField.getText();
         String firstname = firstnameField.getText();
         String lastname = lastnameField.getText();
+
+
+        if (checkIfUsernameExists(username)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hey there!");
+            alert.setContentText("Username already exists");
+            Optional<ButtonType> result = alert.showAndWait();
+
+            if (result.isEmpty()) {
+                System.out.println("Alert closed");
+            }
+            return;
+        }
 
         //Hasing password using SHA-256 algorithm
         MessageDigest md = MessageDigest.getInstance("SHA-256");

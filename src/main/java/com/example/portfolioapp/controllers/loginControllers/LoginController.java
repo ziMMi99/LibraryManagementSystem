@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class LoginController {
@@ -56,6 +57,7 @@ public class LoginController {
 
         return data.getHashedPassword(username).contentEquals(HashedInputPassword);
     }
+
 
     public void setLoginButtonAction(ActionEvent event)  {
         String inputUsername = usernameField.getText();

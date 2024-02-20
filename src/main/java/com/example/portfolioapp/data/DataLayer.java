@@ -3,6 +3,7 @@ package com.example.portfolioapp.data;
 import com.example.portfolioapp.dbo.User;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DataLayer {
     private Connection connection;
@@ -95,6 +96,24 @@ public class DataLayer {
             connection.close();
             System.out.println("Database connection closed");
         }
+    }
+
+    public ArrayList<String> getAllUsernames () {
+        String sql = "SELECT username FROM Users";
+        ArrayList<String> usernames = new ArrayList<>();
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                String usernameToAdd = resultSet.getString("username");
+                usernames.add(usernameToAdd);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Could not retrieve data from database - " + e.getMessage());
+        }
+
+        return usernames;
     }
 
 }

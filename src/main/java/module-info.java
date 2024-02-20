@@ -1,4 +1,4 @@
-module com.example.portfolioapp {
+module com.example.PortfolioApp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;

@@ -1,7 +1,10 @@
 package com.example.portfolioapp.dbo;
 
+import java.util.ArrayList;
+
 public class User {
     private String username, password, email, firstname, lastname;
+    private ArrayList<Book> borrowedBooks;
 
     public User(String username, String password, String email, String firstname, String lastname) {
         this.username = username;

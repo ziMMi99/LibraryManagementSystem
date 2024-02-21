@@ -20,18 +20,15 @@ import java.util.Optional;
 public class RegisterController {
 
     @FXML
-    TextField usernameField;
+    private TextField usernameField;
     @FXML
-    PasswordField passwordField;
+    private PasswordField passwordField;
     @FXML
-    TextField emailField;
+    private TextField emailField;
     @FXML
-    TextField firstnameField;
+    private TextField firstnameField;
     @FXML
-    TextField lastnameField;
-    @FXML
-    Hyperlink loginHyperlink;
-
+    private TextField lastnameField;
 
     public void setLoginHyperlinkAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/portfolioapp/login.fxml"));

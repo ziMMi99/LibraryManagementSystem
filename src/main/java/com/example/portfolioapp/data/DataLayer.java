@@ -115,5 +115,4 @@ public class DataLayer {
 
         return usernames;
     }
-
 }

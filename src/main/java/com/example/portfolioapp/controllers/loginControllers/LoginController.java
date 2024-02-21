@@ -13,18 +13,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Optional;
 
 public class LoginController {
     @FXML
-    TextField usernameField;
+    private TextField usernameField;
 
     @FXML
-    PasswordField passwordField;
-
-    @FXML
-    Hyperlink SignupHyperlink;
+    private PasswordField passwordField;
 
     public void setSignupHyperlinkAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/portfolioapp/register.fxml"));
@@ -36,7 +32,7 @@ public class LoginController {
     }
 
     public void switchToHome(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/portfolioapp/home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/portfolioapp/library.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

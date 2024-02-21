@@ -14,6 +14,13 @@ public class User {
         this.lastname = lastname;
     }
 
+    public User(String username, String email, String firstname, String lastname) {
+        this.username = username;
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     @Override
     public String toString() {
         return "User{" +

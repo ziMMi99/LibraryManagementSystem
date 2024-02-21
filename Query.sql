@@ -33,12 +33,12 @@ CREATE TABLE Book (
     author NVARCHAR(100) NOT NULL,
     genre NVARCHAR(100) NOT NULL,
     quantity int NOT NULL,
-    availability TINYINT NOT NULL,
+    isAvailable TINYINT NOT NULL,
 
     PRIMARY KEY (bookID)
 );
 
-INSERT INTO Book (title, author, genre, quantity, availability) VALUES
+INSERT INTO Book (title, author, genre, quantity, isAvailable) VALUES
 ('To Kill a Mockingbird', 'Harper Lee', 'Fiction', 2, 1),
 ('1984', 'George Orwell', 'Dystopian', 2, 1),
 ('The Great Gatsby', 'F. Scott Fitzgerald', 'Classic', 1, 1),

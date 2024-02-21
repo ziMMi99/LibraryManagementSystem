@@ -1,6 +1,9 @@
 package com.example.portfolioapp.data;
 
+import com.example.portfolioapp.dbo.Book;
 import com.example.portfolioapp.dbo.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -114,5 +117,53 @@ public class DataLayer {
         }
 
         return usernames;
+    }
+
+    public ObservableList<Book> getAllBooks () {
+
+        ObservableList<Book> books = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM Book";
+
+        try (Statement statement = connection.createStatement()){
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                String title = resultSet.getString("title");
+                String author = resultSet.getString("author");
+                String genre = resultSet.getString("genre");
+                int quantity = resultSet.getInt("quantity");
+
+                Book book = new Book(title, author, genre, quantity);
+
+                books.add(book);
+            }
+        } catch (SQLException e) {
+            System.out.println("Could not retrieve books from database");
+        }
+
+        return books;
+    }
+
+    public ArrayList<User> getAllUsers () {
+
+        ArrayList<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM Users";
+
+        try (Statement statement = connection.createStatement()){
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                String username = resultSet.getString("username");
+                String email = resultSet.getString("email");
+                String firstname = resultSet.getString("firstname");
+                String lastname = resultSet.getString("lastname");
+
+                User user = new User(username, email, firstname, lastname);
+
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            System.out.println("Could not retrieve books from database");
+        }
+
+        return users;
     }
 }

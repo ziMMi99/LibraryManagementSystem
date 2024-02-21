@@ -1,5 +1,7 @@
 package com.example.portfolioapp.dbo;
 
+import com.example.portfolioapp.data.DataLayer;
+
 import java.util.ArrayList;
 
 public class Library {
@@ -7,9 +9,10 @@ public class Library {
     private ArrayList<User> users;
 
     public Library() {
+        DataLayer data = new DataLayer();
         //Replace with method to retrieve all users/books
-        this.books = new ArrayList<>();
-        this.users = new ArrayList<>();
+        this.books = (ArrayList<Book>) data.getAllBooks();
+        this.users = data.getAllUsers();
     }
 
     // Methods for Book Management

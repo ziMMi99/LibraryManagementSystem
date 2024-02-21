@@ -3,7 +3,7 @@ package com.example.portfolioapp.dbo;
 public class Book {
     //Class variables
     private String title, author, genre;
-    private int quantity, availability;
+    private int quantity, isAvailable;
 
     //Constuctors
     public Book(String title, String author, String genre, int quantity) {
@@ -11,6 +11,11 @@ public class Book {
         this.author = author;
         this.genre = genre;
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return title + ", " + genre + ", " + author;
     }
 
     //Setters
@@ -31,10 +36,10 @@ public class Book {
     }
 
     public int getAvailability() {
-        return availability;
+        return isAvailable;
     }
     //Getters
-    public void setAvailability(int availability) {
-        this.availability = availability;
+    public void setAvailability(int isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }

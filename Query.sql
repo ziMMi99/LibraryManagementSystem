@@ -20,12 +20,6 @@ CREATE TABLE Users (
     PRIMARY KEY (userID)
 );
 
-CREATE TABLE borrowedBooks (
-    userID int NOT NULL FOREIGN KEY REFERENCES Users(userID) ON DELETE NO ACTION,
-    bookID int NOT NULL FOREIGN KEY REFERENCES Book(bookID) ON DELETE NO ACTION,
-
-    CONSTRAINT composite_key PRIMARY KEY (userID, bookID)
-);
 
 CREATE TABLE Book (
     bookID int IDENTITY(1,1) NOT NULL,
@@ -36,6 +30,13 @@ CREATE TABLE Book (
     isAvailable TINYINT NOT NULL,
 
     PRIMARY KEY (bookID)
+);
+
+CREATE TABLE borrowedBooks (
+   userID int NOT NULL FOREIGN KEY REFERENCES Users(userID) ON DELETE NO ACTION,
+   bookID int NOT NULL FOREIGN KEY REFERENCES Book(bookID) ON DELETE NO ACTION,
+
+   CONSTRAINT composite_key PRIMARY KEY (userID, bookID)
 );
 
 INSERT INTO Book (title, author, genre, quantity, isAvailable) VALUES

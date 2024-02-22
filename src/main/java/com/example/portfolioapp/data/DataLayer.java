@@ -14,10 +14,10 @@ public class DataLayer {
     //Constructor for the datalayer, which initializes the JDBC driver loader, and opens the connection to the database
     public DataLayer() {
         loadJdbcDriver();
-        openConnection("MyPortfolioDB");
+        openConnection();
     }
     //Loads the JDBC driver.
-    private boolean loadJdbcDriver() {
+    private void loadJdbcDriver() {
         try {
             System.out.println("Loading JDBC driver...");
 
@@ -25,19 +25,17 @@ public class DataLayer {
 
             System.out.println("JDBC driver loaded");
 
-            return true;
         } catch (ClassNotFoundException e) {
             System.out.println("Could not load JDBC driver!");
-            return false;
         }
     }
     //Opens a connection to the database
-    private boolean openConnection(String databaseName) {
+    private void openConnection() {
         try {
             String connectionString =
                     "jdbc:sqlserver://localhost:1433;" +
                             "instanceName=SQLEXPRESS;" +
-                            "databaseName=" + databaseName + ";" +
+                            "databaseName=" + "MyPortfolioDB" + ";" +
                             "integratedSecurity=true;" +
                             "trustServerCertificate=true;";
 
@@ -49,20 +47,18 @@ public class DataLayer {
 
             System.out.println("Connected to the database");
 
-            return true;
         } catch (SQLException e) {
 
-            System.out.println("Could not connect to database: " + databaseName);
-            System.out.println("Could not connect to the database: " + databaseName);
+            System.out.println("Could not connect to database: " + "MyPortfolioDB");
+            System.out.println("Could not connect to the database: " + "MyPortfolioDB");
 
             System.out.println(e.getMessage());
-            return false;
         }
     }
 
     public void userRegistration(User user) {
 
-        String sql = "INSERT INTO Users (username, hashedPassword, email, firstname, lastname) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Users (username, hashedPassword, email, firstname, lastname, isAdmin) VALUES (?, ?, ?, ?, ?, 0)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getUsername());
@@ -74,7 +70,7 @@ public class DataLayer {
             statement.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Could not register user - " + e.getMessage());
         }
     }
 
@@ -89,7 +85,7 @@ public class DataLayer {
                 hashedPassword = resultSet.getString("hashedPassword");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Could not retrieve hashed password from database - " + e.getMessage());
         }
         return hashedPassword;
     }

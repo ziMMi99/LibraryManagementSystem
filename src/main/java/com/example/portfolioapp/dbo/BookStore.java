@@ -31,4 +31,12 @@ public class BookStore {
     public ObservableList<Book> getBooks() {
         return books;
     }
+
+    public boolean checkAvailability() {
+        return true;
+    }
+
+    public Book borrowBook(Book book) {
+        return book;
+    }
 }

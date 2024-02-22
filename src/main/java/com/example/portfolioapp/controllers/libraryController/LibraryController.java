@@ -29,6 +29,14 @@ public class LibraryController implements Initializable {
         SearchList.setItems(foundBooks);
     }
 
+    public void setCheckAvailabilityAction() {
+
+    }
+
+    public void setBorrowBookAction() {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -43,7 +51,6 @@ public class LibraryController implements Initializable {
             public void changed(ObservableValue<? extends Book> arg0, Book arg1, Book arg2) {
 
                 bookChoice = SearchList.getSelectionModel().getSelectedItem();
-                System.out.println(bookChoice);
             }
         });
 

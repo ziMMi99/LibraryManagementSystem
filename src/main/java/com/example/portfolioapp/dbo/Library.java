@@ -10,8 +10,6 @@ public class Library {
 
     public Library() {
         DataLayer data = new DataLayer();
-        //Replace with method to retrieve all users/books
-        this.books = (ArrayList<Book>) data.getAllBooks();
         this.users = data.getAllUsers();
     }
 
@@ -26,13 +24,6 @@ public class Library {
 
     public void updateBook(Book book) {
         // Update book details
-    }
-
-    public ArrayList<Book> searchBooks(String query) {
-        ArrayList<Book> data = new ArrayList<>();
-        // Search for books by title, author, or ISBN
-        // Return ArrayList of matching books
-        return data;
     }
 
     // Methods for User Management

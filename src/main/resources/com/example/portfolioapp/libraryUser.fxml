@@ -19,8 +19,10 @@
       <Button layoutX="712.0" layoutY="23.0" mnemonicParsing="false" text="LOG OUT" textFill="RED" />
       <ButtonBar layoutX="400.0" layoutY="307.0" prefHeight="40.0" prefWidth="200.0" />
       <Button layoutX="26.0" layoutY="23.0" mnemonicParsing="false" text="ACCOUNT" />
-      <TextField fx:id="SearchField" layoutX="288.0" layoutY="172.0" promptText="Search for a book" />
-      <ListView fx:id="SearchList" layoutX="288.0" layoutY="207.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="437.0" layoutY="172.0" mnemonicParsing="false" onAction="#setSearchButtonAction" text="Search" />
+      <TextField fx:id="SearchField" layoutX="272.0" layoutY="107.0" prefHeight="26.0" prefWidth="200.0" promptText="Search for a book" />
+      <ListView fx:id="SearchList" layoutX="205.0" layoutY="142.0" prefHeight="317.0" prefWidth="390.0" />
+      <Button layoutX="476.0" layoutY="107.0" mnemonicParsing="false" onAction="#setSearchButtonAction" text="Search" />
+      <Button layoutX="293.0" layoutY="478.0" mnemonicParsing="false" text="Check availability" />
+      <Button layoutX="409.0" layoutY="478.0" mnemonicParsing="false" text="Borrow book" />
    </children>
 </AnchorPane>

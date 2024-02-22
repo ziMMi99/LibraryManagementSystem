@@ -2,6 +2,7 @@ module com.example.PortfolioApp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires com.microsoft.sqlserver.jdbc;
 
 
     opens com.example.portfolioapp to javafx.fxml;
